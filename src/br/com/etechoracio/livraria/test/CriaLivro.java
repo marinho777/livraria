@@ -1,39 +1,31 @@
 package br.com.etechoracio.livraria.test;
 
-import br.com.etechoracio.livraria.enums.TipoCapa;
 
-import br.com.etechoracio.livraria.model.Livro;
+import br.com.etechoracio.livraria.model.LivroImpresso;
 import br.com.etechoracio.livraria.model.Editora;
 import br.com.etechoracio.livraria.model.Kindle;
+import br.com.etechoracio.livraria.model.SacolaCompras;
 
 
 
 public class CriaLivro {
     public static void main(String[] args) {
 
-        Livro testeLivro = new Livro();
-        testeLivro.setGenero("Sexo");
-        testeLivro.setAutor("correx");
-        testeLivro.setIdioma("eslovaco");
-        testeLivro.setTitulo("pedabliu");
-        testeLivro.setEdicao("567");
-
         Editora editora1 = new Editora();
         editora1.setNome("sla");
         editora1.setSite("google.com");
 
-        testeLivro.setPreco(70.50);
-
-
-        testeLivro.setTipoCapa(TipoCapa.NORMAL);
-
+        LivroImpresso livro1 = new LivroImpresso();
 
         Kindle livro2 = new Kindle();
-        testeLivro.setGenero("Sexo");
-        testeLivro.setAutor("correx");
-        testeLivro.setIdioma("eslovaco");
-        testeLivro.setTitulo("pedabliu");
-        testeLivro.setEdicao("567");
+        livro2.setGenero("Sexo");
+        livro2.setAutor("correx");
+        livro2.setTitulo("pedabliu");
+        livro2.setIdioma("eslovaco");
+        livro2.setEdicao("567");
+
+        SacolaCompras sacola2304 = new SacolaCompras();
+        sacola2304.adicionar(livro2);
 
     }
 }

@@ -2,7 +2,7 @@ package br.com.etechoracio.livraria.model;
 
 import br.com.etechoracio.livraria.enums.TipoCapa;
 
-public class Livro {
+public abstract class Livro {
     private double preco, taxaentrega, subtotal;
    private String titulo, genero, idioma, autor, edicao, cip;
     private TipoCapa tipoCapa;
@@ -22,6 +22,7 @@ public class Livro {
          System.out.println("Subtotal: " + formatarValor(subtotal));
          System.out.println("nome editora: " + editora.getNome());
          System.out.println("site editora: " + editora.getSite());
+         detalhar();
 
     }
     double taxaEntrega(){
@@ -31,13 +32,14 @@ public class Livro {
          return String.format("R$ %.2f", temp);
     }
 
-s
-    double desconto(double desconto){
-         if(!(desconto > 0.2)) {
-             return preco * (desconto / 100);
-         }else{
-             System.out.println("DESCONTO INVALIDO");
-         }
+
+    double desconto(double desconto) {
+        if (!(desconto > 0.2)) {
+            return preco * (desconto / 100);
+        } else {
+            System.out.println("DESCONTO INVALIDO");
+            return 0;
+        }
     }
     void cobrarCapa(){
          if(tipoCapa == TipoCapa.DURA){
@@ -48,6 +50,8 @@ s
              subtotal += 20;
          }
     }
+
+    protected abstract void detalhar();
 
     public void setTipoCapa(TipoCapa tipoCapa) {
         this.tipoCapa = tipoCapa;
